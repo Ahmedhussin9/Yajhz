@@ -1,0 +1,21 @@
+package com.example.domain.model.popular
+
+import kotlinx.parcelize.Parcelize
+import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
+
+@Parcelize
+data class PopularResponse(
+
+    @field:SerializedName("response_code")
+	val responseCode: Int? = null,
+
+    @field:SerializedName("data")
+	val data: List<PopularItem?>? = null,
+
+    @field:SerializedName("success")
+	val success: Boolean? = null,
+
+    @field:SerializedName("message")
+	val message: String? = null
+) : Parcelable

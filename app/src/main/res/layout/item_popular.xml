@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="popularItem"
+            type="com.example.domain.model.popular.PopularItem" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="170dp"
+        android:layout_height="150dp"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="10dp"
+        android:layout_marginHorizontal="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/item_background"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                android:src="@drawable/winges_ic"
+                url="@{popularItem.image}"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="@id/guideline3"
+                android:background="#7C000000" />
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Winges"
+                android:textStyle="bold"
+                android:textColor="#FCEFCE"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guideline3"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@{popularItem.name}"
+                />
+
+            <ImageView
+                android:id="@+id/star_ic"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:src="@drawable/star"
+                app:layout_constraintTop_toBottomOf="@id/item_name"
+                app:layout_constraintStart_toStartOf="@id/item_name"
+                android:layout_marginTop="5dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/star_ic"
+                app:layout_constraintTop_toTopOf="@id/star_ic"
+                app:layout_constraintBottom_toBottomOf="@id/star_ic"
+                tools:text="5"
+                android:text="@{popularItem.rate}"
+                android:layout_marginStart="3dp"
+                android:textColor="#FCEFCE" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_begin="85dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
