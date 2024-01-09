@@ -56,7 +56,11 @@ class SignUpViewModel @Inject constructor(
                     errorrLiveData.postValue(data.message)
                 }
             }catch (e:Exception){
+                if (e.message=="Chain validation failed"){
+                    signUp()
+                }else{
                     errorrLiveData.postValue(e.message)
+                }
             }
         }
     }

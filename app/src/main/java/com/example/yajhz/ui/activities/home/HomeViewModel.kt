@@ -38,7 +38,10 @@ class HomeViewModel @Inject constructor(
             }catch (e:Exception){
                 if (e.message=="Chain validation failed"){
                     loadTrending()
+                }else{
+                    errorrLiveData.postValue(e.message)
                 }
+
             }
 
         }
@@ -52,6 +55,8 @@ class HomeViewModel @Inject constructor(
             }catch (e:Exception){
                 if (e.message=="Chain validation failed"){
                     loadCategory()
+                }else{
+                    errorrLiveData.postValue(e.message)
                 }
             }
 
@@ -66,6 +71,8 @@ class HomeViewModel @Inject constructor(
             }catch (e:Exception){
                 if (e.message=="Chain validation failed"){
                     loadPopular()
+                }else{
+                    errorrLiveData.postValue(e.message)
                 }
             }
 

@@ -50,6 +50,8 @@ private val useCase: SignInUseCase
             }catch (e:Exception){
                     if (e.message=="Chain validation failed"){
                         signIn()
+                    }else{
+                        errorrLiveData.postValue(e.message)
                     }
             }
 
